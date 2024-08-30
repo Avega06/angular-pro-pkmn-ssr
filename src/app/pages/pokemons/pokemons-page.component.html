@@ -12,6 +12,14 @@
 <!-- TODO: Buttons Load next & prev -->
 
 <div class="flex justify-between">
-  <button (click)="loadPokemons(-1)" class="mt-2">Prev</button>
-  <button (click)="loadPokemons(+1)" class="mt-2">Next</button>
+  <button
+    [disabled]="currentPage() === 1"
+    [routerLink]="['/pokemons/page', currentPage()! - 1]"
+    class="mt-2"
+  >
+    Prev
+  </button>
+  <button [routerLink]="['/pokemons/page', currentPage()! + 1]" class="mt-2">
+    Next
+  </button>
 </div>
